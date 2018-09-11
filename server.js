@@ -1,0 +1,24 @@
+//add dependencies that were added in the package.json file
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+
+const app=express();
+
+//Body Parser Middleware
+app.use(bodyParser.json());
+
+//Mongo DB can be utilized from mlab.com -> Mongo DB Hosting
+
+//Config File Abstraction
+const db= require('./config/keys').mongoURI;
+
+//Connect to Mongo Database
+mongoose
+	.connect(db)
+	.then(()=>console.log('Mongo Database Successfully connected!'))
+	.catch(err=> console.log(err));
+
+//Declare port for server -> environment variable or port 5000, allow server to listen on that port
+const port=process.env.PORT || 5000;
+app.listen(port, ()=>console.log(`Server Started on port ${port}`));

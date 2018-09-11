@@ -4,7 +4,8 @@
   "description": "Financial App built with the Mern Stack",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "server": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
     "concurrently": "^4.0.1",
     "express": "^4.16.3",
     "mongoose": "^5.2.14"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4"
   }
 }
