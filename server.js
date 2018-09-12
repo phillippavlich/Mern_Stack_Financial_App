@@ -22,7 +22,7 @@ mongoose
 	.catch(err=> console.log(err));
 
 
-//use Routes for DB manipulation --> refer to items variable
+//use Routes for DB manipulation --> refer to items 
 app.use('/api/items',items);
 
 
