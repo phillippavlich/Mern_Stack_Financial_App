@@ -8,12 +8,12 @@ import PropTypes from 'prop-types';
 
 class ShoppingList extends Component{
 	//life cycle method
-	/*
+	
 	componentDidMount(){
 		this.props.getItems();
 
 	}
-	*/
+	
 
 	render (){
 		const { items }=this.props.item;
