@@ -7,7 +7,7 @@ import {
   Nav,
   NavItem,
   NavLink,
-  Container 
+  Container
 
 } from 'reactstrap';
 
@@ -36,16 +36,21 @@ class AppNavBar extends Component {
 				{/*brackets forces it to be treated like vanilla javascript instead of JSX */}
 				<Navbar color="dark" dark expand="sm" className="mb-5">{/*expand->on small screens for drop down Nav Bar !!!!! response margin bottom 5*/}
 					<Container>
-						<NavbarBrand href="/">Transaction List</NavbarBrand>
+						<NavbarBrand href="/">Home</NavbarBrand>
 						<NavbarToggler onClick={this.toggle} />
 						<Collapse isOpen={this.state.isOpen} navbar>
 							<Nav className="ml-auto" navbar>
 								<NavItem>
-									<NavLink href="https://www.nhl.com/">NHL</NavLink>
+
+									<NavLink href="./Liabilities">Liabilities</NavLink>
+									
 								</NavItem>
 								<NavItem>
-									<NavLink href="https://github.com/phillippavlich/Mern_Stack_Financial_App">GitHub</NavLink>
+									<NavLink href="https://github.com/phillippavlich">Github</NavLink>
+									{//<NavLink tag={Link} to="/Liabilities">Assets </NavLink>
+									}
 								</NavItem>
+								
 							</Nav>
 						</Collapse>
 					</Container>
