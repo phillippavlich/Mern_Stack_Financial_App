@@ -8,7 +8,7 @@ const ItemSchema=new Schema({
 		required: true
 	},
 	amount: {
-		type: String,
+		type: Number,
 		required: true
 	},
 	date: {

@@ -7,7 +7,7 @@ ModalBody,
 Form, 
 FormGroup, 
 Label, 
-Input
+Input, InputGroup, InputGroupAddon
 } from 'reactstrap';
 import {connect} from 'react-redux';
 import {addItem} from '../actions/itemActions';
@@ -75,13 +75,18 @@ class ItemModal extends Component{
 									placeholder="Add new transaction"
 									onChange={this.onChange}
 								/>
-								<Input 
-									type="text"
-									name="amount"
-									id="amount"
-									placeholder="Add the transaction amount"
-									onChange={this.onChange}
-								/>
+								<InputGroup>
+							        <InputGroupAddon addonType="prepend">$</InputGroupAddon>
+									<Input 
+										type="currency"
+										name="amount"
+										id="amount"
+
+										placeholder="Add the transaction amount"
+										onChange={this.onChange}
+									/>
+								</InputGroup>
+							        
 								<Button color="dark" style={{marginTop: '2rem'}} block>Add Item</Button>
 							</FormGroup>
 						</Form>
