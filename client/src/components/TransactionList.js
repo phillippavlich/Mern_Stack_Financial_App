@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container, ListGroup, ListGroupItem, Button } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem, Button, Table, Input, FormGroup, Label } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../actions/itemActions';
@@ -23,7 +23,28 @@ class TransactionList extends Component{
 		var options = { year: 'numeric', month: 'long', day: 'numeric' };
 		return(
 			<Container>
-					
+				<FormGroup tag="fieldset">
+		          <legend>Type of Transaction</legend>
+		          <FormGroup check>
+		          	<Label check>
+		             	<Input type="radio" name="radio1" />{' '}
+		             	All
+		           	</Label>
+		          </FormGroup>
+		          <FormGroup check>
+		            <Label check>
+		              <Input type="radio" name="radio1" />{' '}
+		              Income
+		            </Label>
+		          </FormGroup>
+		          <FormGroup check>
+		            <Label check>
+		              <Input type="radio" name="radio1" />{' '}
+		              Expense
+		            </Label>
+		          </FormGroup>
+		        </FormGroup>
+	      
 				<ListGroup>
 					<TransitionGroup className="transaction-list">
 						{items.map(({_id, name, amount, date}) => (
@@ -39,6 +60,37 @@ class TransactionList extends Component{
 						))}
 					</TransitionGroup>
 				</ListGroup>
+
+				<Table>
+			        <thead>
+			          <tr>
+			            <th>Date</th>
+			            <th>Type</th>
+			            <th>Transaction</th>
+			            <th>Amount</th>
+			          </tr>
+			        </thead>
+			        <tbody>
+			          <tr>
+			            <th scope="row">1</th>
+			            <td>Mark</td>
+			            <td>Otto</td>
+			            <td>@mdo</td>
+			          </tr>
+			          <tr>
+			            <th scope="row">2</th>
+			            <td>Jacob</td>
+			            <td>Thornton</td>
+			            <td>@fat</td>
+			          </tr>
+			          <tr>
+			            <th scope="row">3</th>
+			            <td>Larry</td>
+			            <td>the Bird</td>
+			            <td>@twitter</td>
+			          </tr>
+			        </tbody>
+			      </Table>
 
 
 			</Container>

@@ -18,9 +18,7 @@ class App extends Component {
             <AppNavBar />
             <Container>
             <h1>Financial Budgeting</h1>
-            <h2>Transaction</h2>
-            <h3>Income</h3>
-            <h3>Expense</h3>
+            
             <ItemModal/>
             <TransactionList />
           </Container>

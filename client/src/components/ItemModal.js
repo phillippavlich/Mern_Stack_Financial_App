@@ -7,7 +7,7 @@ ModalBody,
 Form, 
 FormGroup, 
 Label, 
-Input, InputGroup, InputGroupAddon
+Input, InputGroup, InputGroupAddon, Dropdown, DropdownItem, DropdownToggle, DropdownMenu
 } from 'reactstrap';
 import {connect} from 'react-redux';
 import {addItem} from '../actions/itemActions';
@@ -16,6 +16,7 @@ import {addItem} from '../actions/itemActions';
 class ItemModal extends Component{
 	state={
 		modal: false,
+		dropdownOpen: false,
 		name: '',
 		amount: 0
 	}
@@ -25,6 +26,12 @@ class ItemModal extends Component{
 			modal: !this.state.modal
 
 		});
+	}
+
+	toggleType=()=> {
+	    this.setState(prevState => ({
+	      dropdownOpen: !prevState.dropdownOpen
+	    }));
 	}
 
 	onChange =(e)=>{
@@ -67,6 +74,20 @@ class ItemModal extends Component{
 					<ModalBody>
 						<Form onSubmit={this.onSubmit}>
 							<FormGroup>
+								<Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggleType}>
+						        <DropdownToggle caret>
+						          Type
+						        </DropdownToggle>
+						        <DropdownMenu>
+						          <DropdownItem header>Pick One</DropdownItem>
+						          <DropdownItem divider />
+						          <DropdownItem>Income</DropdownItem>
+						          <DropdownItem>Expense</DropdownItem>
+						        </DropdownMenu>
+						      </Dropdown>
+
+
+
 								<Label for="item">Item</Label>
 								<Input 
 									type="text"
