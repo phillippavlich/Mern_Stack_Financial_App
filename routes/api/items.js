@@ -19,7 +19,8 @@ router.get('/', (req,res) => {// uses / since router is already mapped to file i
 //@access Public
 router.post('/', (req,res) => {
 	const newItem= new Item({
-		name: req.body.name
+		name: req.body.name,
+		amount: req.body.amount
 	});//from item model above
 	newItem.save().then(item => res.json(item));
 });

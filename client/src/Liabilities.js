@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AppNavBar from './components/AppNavBar'
-import ShoppingList from './components/ShoppingList'
+import TransactionList from './components/TransactionList'
 import ItemModal from './components/ItemModal'
 
 import {Provider} from 'react-redux';
@@ -22,7 +22,7 @@ class Liabilities extends Component {
             <h3>Income</h3>
             <h3>Expense</h3>
             <ItemModal/>
-            <ShoppingList />
+            <TransactionList />
           </Container>
         </div>
       </Provider>

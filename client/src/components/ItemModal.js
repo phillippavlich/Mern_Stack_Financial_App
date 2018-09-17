@@ -16,7 +16,8 @@ import {addItem} from '../actions/itemActions';
 class ItemModal extends Component{
 	state={
 		modal: false,
-		name: ''
+		name: '',
+		amount: 0
 	}
 
 	toggle=()=>{
@@ -37,7 +38,8 @@ class ItemModal extends Component{
 		//prevent default submission
 		e.preventDefault();
 		const newItem ={
-			name: this.state.name
+			name: this.state.name,
+			amount: this.state.amount
 
 		}
 
@@ -70,7 +72,14 @@ class ItemModal extends Component{
 									type="text"
 									name="name"
 									id="item"
-									placeholder="add new item"
+									placeholder="Add new transaction"
+									onChange={this.onChange}
+								/>
+								<Input 
+									type="text"
+									name="amount"
+									id="amount"
+									placeholder="Add the transaction amount"
 									onChange={this.onChange}
 								/>
 								<Button color="dark" style={{marginTop: '2rem'}} block>Add Item</Button>

@@ -11,6 +11,8 @@ import {
 
 } from 'reactstrap';
 
+import { Link } from 'react-router-dom';
+
 class AppNavBar extends Component {
 	/*
 	constructor(props){
@@ -48,11 +50,13 @@ class AppNavBar extends Component {
 								<NavItem>
 									<NavLink href="https://github.com/phillippavlich">Github</NavLink>
 									{//<NavLink tag={Link} to="/Liabilities">Assets </NavLink>
+									//<Link className="nav-link" to="/dashboard">Dashboard</Link>
 									}
 								</NavItem>
 								
 							</Nav>
 						</Collapse>
+					
 					</Container>
 				</Navbar>
 			</div>
