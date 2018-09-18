@@ -45,6 +45,7 @@ class TransactionList extends Component{
 		          </FormGroup>
 		        </FormGroup>
 	      
+ {/*
 				<ListGroup>
 					<TransitionGroup className="transaction-list">
 						{items.map(({_id, name, amount, date}) => (
@@ -60,38 +61,43 @@ class TransactionList extends Component{
 						))}
 					</TransitionGroup>
 				</ListGroup>
+*/
+}
 
+{//Dynamically populate table with DataSet
+}
 				<Table>
 			        <thead>
 			          <tr>
 			            <th>Date</th>
 			            <th>Type</th>
 			            <th>Transaction</th>
-			            <th>Amount</th>
+			            <th>Amount ($)</th>
 			          </tr>
 			        </thead>
 			        <tbody>
-			          <tr>
-			            <th scope="row">1</th>
-			            <td>Mark</td>
-			            <td>Otto</td>
-			            <td>@mdo</td>
-			          </tr>
-			          <tr>
-			            <th scope="row">2</th>
-			            <td>Jacob</td>
-			            <td>Thornton</td>
-			            <td>@fat</td>
-			          </tr>
-			          <tr>
-			            <th scope="row">3</th>
-			            <td>Larry</td>
-			            <td>the Bird</td>
-			            <td>@twitter</td>
-			          </tr>
+			        	{items.map(({_id, name, amount, date}) => (
+			        		<CSSTransition key={_id} timeout={500} classNames="fade">	
+			          		<tr>
+			          		
+					            <th scope="row">
+					            	<Button style={{marginRight: '1rem'}} className="remove-btn" color="danger" size="sm"
+									onClick={this.onDeleteClick.bind(this,_id)}
+									>&times;
+									</Button>
+									{date.substring(0, date.indexOf("T"))}
+								</th>
+					            <td>{name}</td>
+					            <td>{name}</td>
+					            <td>{amount}</td>
+				          		
+				          	</tr>
+				          	</CSSTransition>
+			          		
+
+			          	))}
 			        </tbody>
 			      </Table>
-
 
 			</Container>
 		);
