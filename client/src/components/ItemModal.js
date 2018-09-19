@@ -57,7 +57,6 @@ class ItemModal extends Component{
 			amount: this.state.amount
 
 		}
-		alert(this.state.transactionType);
 		//add item via addItem action
 		this.props.addItem(newItem);
 
