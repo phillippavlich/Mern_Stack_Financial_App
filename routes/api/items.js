@@ -20,6 +20,7 @@ router.get('/', (req,res) => {// uses / since router is already mapped to file i
 router.post('/', (req,res) => {
 	const newItem= new Item({
 		name: req.body.name,
+		transactionType: req.body.transactionType,
 		amount: req.body.amount
 	});//from item model above
 	newItem.save().then(item => res.json(item));

@@ -27,19 +27,19 @@ class TransactionList extends Component{
 		          <legend>Type of Transaction</legend>
 		          <FormGroup check>
 		          	<Label check>
-		             	<Input type="radio" name="radio1" />{' '}
+		             	<Input type="radio" name="radio1" />
 		             	All
 		           	</Label>
 		          </FormGroup>
 		          <FormGroup check>
 		            <Label check>
-		              <Input type="radio" name="radio1" />{' '}
+		              <Input type="radio" name="radio1" />
 		              Income
 		            </Label>
 		          </FormGroup>
 		          <FormGroup check>
 		            <Label check>
-		              <Input type="radio" name="radio1" />{' '}
+		              <Input type="radio" name="radio1"  />
 		              Expense
 		            </Label>
 		          </FormGroup>
@@ -48,7 +48,7 @@ class TransactionList extends Component{
  {/*
 				<ListGroup>
 					<TransitionGroup className="transaction-list">
-						{items.map(({_id, name, amount, date}) => (
+						{items.map(({_id, name,transactionType, amount, date}) => (
 							<CSSTransition key={_id} timeout={500} classNames="fade">	
 								<ListGroupItem>
 									<Button className="remove-btn" color="danger" size="sm"
@@ -76,7 +76,7 @@ class TransactionList extends Component{
 			          </tr>
 			        </thead>
 			        <tbody>
-			        	{items.map(({_id, name, amount, date}) => (
+			        	{items.map(({_id, name, transactionType, amount, date}) => (
 			        		<CSSTransition key={_id} timeout={500} classNames="fade">	
 			          		<tr>
 			          		
@@ -87,7 +87,7 @@ class TransactionList extends Component{
 									</Button>
 									{date.substring(0, date.indexOf("T"))}
 								</th>
-					            <td>{name}</td>
+					            <td>{transactionType}</td>
 					            <td>{name}</td>
 					            <td>{amount}</td>
 				          		

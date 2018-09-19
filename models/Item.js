@@ -7,6 +7,10 @@ const ItemSchema=new Schema({
 		type: String,
 		required: true
 	},
+	transactionType: {
+		type: String,
+		required: true
+	},
 	amount: {
 		type: Number,
 		required: true

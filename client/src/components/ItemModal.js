@@ -18,6 +18,7 @@ class ItemModal extends Component{
 		modal: false,
 		dropdownOpen: false,
 		name: '',
+		transactionType: 'Type',
 		amount: 0
 	}
 
@@ -41,15 +42,22 @@ class ItemModal extends Component{
 		});
 	}
 
+	select = (event) => {
+	    this.setState({
+	      transactionType: event.target.innerHTML
+	    });
+	}
+
 	onSubmit=(e)=>{
 		//prevent default submission
 		e.preventDefault();
 		const newItem ={
 			name: this.state.name,
+			transactionType: this.state.transactionType,
 			amount: this.state.amount
 
 		}
-
+		alert(this.state.transactionType);
 		//add item via addItem action
 		this.props.addItem(newItem);
 
@@ -75,18 +83,16 @@ class ItemModal extends Component{
 						<Form onSubmit={this.onSubmit}>
 							<FormGroup>
 								<Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggleType}>
-						        <DropdownToggle caret>
-						          Type
-						        </DropdownToggle>
-						        <DropdownMenu>
-						          <DropdownItem header>Pick One</DropdownItem>
-						          <DropdownItem divider />
-						          <DropdownItem>Income</DropdownItem>
-						          <DropdownItem>Expense</DropdownItem>
-						        </DropdownMenu>
-						      </Dropdown>
-
-
+							        <DropdownToggle caret>
+							          {this.state.transactionType}
+							        </DropdownToggle>
+							        <DropdownMenu >
+							          <DropdownItem header>Pick One</DropdownItem>
+							          <DropdownItem divider />
+							          <DropdownItem onClick={this.select}>Income</DropdownItem>
+							          <DropdownItem onClick={this.select}>Expense</DropdownItem>
+							        </DropdownMenu>
+						      	</Dropdown>
 
 								<Label for="item">Item</Label>
 								<Input 
