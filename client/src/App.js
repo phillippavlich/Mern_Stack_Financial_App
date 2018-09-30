@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
 import AppNavBar from './components/AppNavBar'
 import TransactionList from './components/TransactionList'
 import ItemModal from './components/ItemModal'
+import AccountModal from './components/AccountModal'
 
 import Calculations from './components/Calculations';
 
@@ -25,13 +26,17 @@ class App extends Component {
         <div className="App">
             <AppNavBar />
             <Container>
-            <h1>Financial Budgeting</h1>
-            <Calculations />
-            <ItemModal/>
-            <TransactionList />
-          </Container>
+              <h1>Financial Budgeting</h1>
+              <Calculations />
+              <ItemModal/>
+              <TransactionList />
+              <div className="addButton">
+                <AccountModal/>
+              </div>
+            </Container>
         </div>
       </Provider>
+
     );
   }
 }

@@ -11,7 +11,7 @@ const Account = require('../../models/Account');
 router.get('/', (req,res) => {// uses / since router is already mapped to file in server
 	Account.find()
 	.sort({dateCreated: -1})//sort by date (1) asc (-1) desc
-	.then(items => res.json(items))//stores results in items array
+	.then(accounts => res.json(accounts))//stores results in items array
 });
 
 //@route POST api/items
@@ -22,17 +22,18 @@ router.post('/', (req,res) => {
 		name: req.body.name,
 		accountHolder: req.body.accountHolder,
 		accountType: req.body.accountType,
-		accoutNumber: req.body.accountNumber
-	//from item model above
-	newItem.save().then(item => res.json(item));
+		accountNumber: req.body.accountNumber
+	});
+	//from account model above
+	newAccount.save().then(account => res.json(account));
 });
 
 //@route DELETE api/items/:id
 //@desc Delete an Item
 //@access Public
 router.delete('/:id', (req,res) => {// uses :id for an id value to delete value
-	Item.findById(req.params.id)//extract from param
-	.then(item => item.remove()
+	Account.findById(req.params.id)//extract from param
+	.then(account => account.remove()
 	.then(() => res.json({success: true})))	
 	.catch(err => res.status(404).json({success: false}));
 });

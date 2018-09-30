@@ -81,7 +81,7 @@ class ItemModal extends Component{
 					<ModalBody>
 						<Form onSubmit={this.onSubmit}>
 							<FormGroup>
-								<Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggleType}>
+								<Dropdown style={{ marginBottom: '1rem' }} isOpen={this.state.dropdownOpen} toggle={this.toggleType}>
 							        <DropdownToggle caret>
 							          {this.state.transactionType}
 							        </DropdownToggle>
@@ -94,7 +94,7 @@ class ItemModal extends Component{
 						      	</Dropdown>
 
 								<Label for="item">Item</Label>
-								<Input 
+								<Input style={{ marginBottom: '1rem' }} 
 									type="text"
 									name="name"
 									id="item"

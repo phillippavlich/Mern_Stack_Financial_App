@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const items =require('./routes/api/items');
+const accounts =require('./routes/api/accounts');
 
 const app=express();
 
@@ -24,6 +25,8 @@ mongoose
 
 //use Routes for DB manipulation --> refer to items 
 app.use('/api/items',items);
+//use Routes for DB manipulation --> refer to accounts 
+app.use('/api/accounts',accounts);
 
 
 //Declare port for server -> environment variable or port 5000, allow server to listen on that port

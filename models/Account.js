@@ -27,4 +27,4 @@ const AccountSchema=new Schema({
 });
 
 //export model that was just created for the database
-module.exports = Account = mongoose.model('account', ItemSchema)
+module.exports = Account = mongoose.model('account', AccountSchema)
