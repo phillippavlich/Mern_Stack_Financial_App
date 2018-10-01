@@ -14,7 +14,11 @@ import { Container} from 'reactstrap';
 
 {
 //import {getIncome, getExpenses} from './components/Calculations';
+//Ideas
 
+//allow the user to transfer money in between accounts
+//allow the user to filter the results
+//allow the user to edit account info
 }
 
 class App extends Component {

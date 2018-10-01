@@ -100,7 +100,7 @@ class AccountSummary extends Component{
 						</div>
 
 						<div>
-							<h4>Assets</h4>
+							<h4>Income</h4>
 
 							${this.getAssets(items,accountNumber)}
 								
@@ -108,7 +108,7 @@ class AccountSummary extends Component{
 						</div>
 
 						<div>
-							<h4>Liabilities</h4>
+							<h4>Expenses</h4>
 
 							${this.getLiabilities(items,accountNumber)}
 						</div>

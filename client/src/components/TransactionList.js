@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Container, ListGroup, ListGroupItem, Button, Table, Input, FormGroup, Label } from 'reactstrap';
+import { Container, ListGroup, ListGroupItem, Button, Table, Input, FormGroup, Label, InputGroup, InputGroupAddon } from 'reactstrap';
 import { CSSTransition, TransitionGroup, Transition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../actions/itemActions';
@@ -8,7 +8,10 @@ import PropTypes from 'prop-types';
 
 class TransactionList extends Component{
 	//life cycle method
-	
+	state={
+		records: 5
+
+	}
 	componentDidMount(){
 		this.props.getItems();
 
@@ -17,6 +20,12 @@ class TransactionList extends Component{
 	onDeleteClick = (id) => {
 		this.props.deleteItem(id);
 	}
+	onChange =(e)=>{
+		this.setState({
+			[e.target.name]: e.target.value
+
+		});
+	}
 	
 
 	render (){
@@ -24,27 +33,49 @@ class TransactionList extends Component{
 		var options = { year: 'numeric', month: 'long', day: 'numeric' };
 		return(
 			<Container>
-				<FormGroup tag="fieldset">
-		          <legend>Type of Transaction</legend>
-		          <FormGroup check>
-		          	<Label check>
-		             	<Input type="radio" name="radio1" />
-		             	All
-		           	</Label>
-		          </FormGroup>
-		          <FormGroup check>
-		            <Label check>
-		              <Input type="radio" name="radio1" />
-		              Income
-		            </Label>
-		          </FormGroup>
-		          <FormGroup check>
-		            <Label check>
-		              <Input type="radio" name="radio1"  />
-		              Expense
-		            </Label>
-		          </FormGroup>
-		        </FormGroup>
+
+				<div id="filterOnType" style={{ display: 'inline-block', margin: '1rem'}}>
+
+					<FormGroup tag="fieldset">
+			          <legend>Type of Transaction</legend>
+			          <FormGroup check>
+			          	<Label check>
+			             	<Input type="radio" name="radio1" />
+			             	All
+			           	</Label>
+			          </FormGroup>
+			          <FormGroup check>
+			            <Label check>
+			              <Input type="radio" name="radio1" />
+			              Income
+			            </Label>
+			          </FormGroup>
+			          <FormGroup check>
+			            <Label check>
+			              <Input type="radio" name="radio1"  />
+			              Expense
+			            </Label>
+			          </FormGroup>
+			        </FormGroup>
+		        </div>
+
+		        <div id="filterOnQuantity" style={{ display: 'inline-block', clear: 'none', margin: '1rem'}}>
+
+					<FormGroup tag="fieldset">
+			          	<InputGroup>
+							<Input 
+								style={{ width: '100px'}}
+								type="Number"
+								name="records"
+								id="records"
+
+								placeholder={this.state.records}
+								onChange={this.onChange}
+							/>
+							<InputGroupAddon addonType="append">Most Recent Transactions</InputGroupAddon>
+						</InputGroup>
+			        </FormGroup>
+		        </div>
 	      
  {
  	/*
@@ -86,7 +117,7 @@ class TransactionList extends Component{
 {
 //			        	<TransitionGroup >
 }			        	
-			        	{items.map(({_id, name, transactionType, amount, accountNumber, date}) => (
+			        	{items.slice(0,this.state.records).map(({_id, name, transactionType, amount, accountNumber, date}) => (
 			        		
 			        		<CSSTransition key={_id} timeout={10000} classNames="fade">	
 			        		
