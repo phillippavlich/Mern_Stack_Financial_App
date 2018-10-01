@@ -1,3 +1,4 @@
+
 .remove-btn{
 	margin-right: 0.5 rem;
 }
@@ -8,7 +9,7 @@
 
 .fade-enter-active{
 	opacity: 1;
-	transition: opacity 1000ms ease-in;
+	transition: opacity 10000ms ease-in;
 }
 
 .fade-exit{
@@ -17,11 +18,21 @@
 
 .fade-exit-active{
 	opacity: 0.01;
-	transition: opacity 1000ms ease-in;
+	transition: opacity 10000ms ease-in;
 }
 
 .addButton{
 	
 	float: right;
 
+}
+
+.addAccount{
+	margin-top: 1rem;
+	float: left;
+
+
+}
+.clearBoth{
+	clear: both;
 }

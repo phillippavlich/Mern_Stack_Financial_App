@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import { Container, ListGroup, ListGroupItem, Button, Table, Input, FormGroup, Label } from 'reactstrap';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { CSSTransition, TransitionGroup, Transition } from 'react-transition-group';
 import { connect } from 'react-redux';
 import { getItems, deleteItem } from '../actions/itemActions';
 import PropTypes from 'prop-types';
+
 
 class TransactionList extends Component{
 	//life cycle method
@@ -45,11 +46,12 @@ class TransactionList extends Component{
 		          </FormGroup>
 		        </FormGroup>
 	      
- {/*
+ {
+ 	/*
 				<ListGroup>
-					<TransitionGroup className="transaction-list">
+					<TransitionGroup >
 						{items.map(({_id, name,transactionType, amount, date}) => (
-							<CSSTransition key={_id} timeout={500} classNames="fade">	
+							<CSSTransition key={_id} timeout={10000} classNames="fade">	
 								<ListGroupItem>
 									<Button className="remove-btn" color="danger" size="sm"
 									onClick={this.onDeleteClick.bind(this,_id)}
@@ -61,12 +63,15 @@ class TransactionList extends Component{
 						))}
 					</TransitionGroup>
 				</ListGroup>
-*/
+	*/
 }
+
 
 {//Dynamically populate table with DataSet
 }
+				
 				<Table>
+				
 			        <thead>
 			          <tr>
 			            <th>Date</th>
@@ -75,9 +80,15 @@ class TransactionList extends Component{
 			            <th>Amount ($)</th>
 			          </tr>
 			        </thead>
+			        
 			        <tbody>
+{
+//			        	<TransitionGroup >
+}			        	
 			        	{items.map(({_id, name, transactionType, amount, date}) => (
-			        		<CSSTransition key={_id} timeout={500} classNames="fade">	
+			        		
+			        		<CSSTransition key={_id} timeout={10000} classNames="fade">	
+			        		
 			          		<tr>
 			          		
 					            <th scope="row">
@@ -92,12 +103,18 @@ class TransactionList extends Component{
 					            <td>{amount}</td>
 				          		
 				          	</tr>
+				          	
 				          	</CSSTransition>
 			          		
 
 			          	))}
+{			          	
+//			       	</TransitionGroup >
+}
 			        </tbody>
+			        
 			      </Table>
+
 
 			</Container>
 		);

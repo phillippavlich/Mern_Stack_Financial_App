@@ -71,10 +71,10 @@ class AccountModal extends Component{
 	render(){
 		return(
 			<div>
-				<Button 
-				style={{marginBottom: '2rem', background: 'Green', borderRadius: '100%' }}
+				<Button color="dark"
+				style={{marginBottom: '2rem'}}
 				onClick={this.toggle}
-				>+
+				>Add a new Account
 				</Button>
 				<Modal
 					isOpen={this.state.modal}

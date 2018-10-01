@@ -9,7 +9,7 @@ import {Provider} from 'react-redux';
 import store from './store';
 import { Container} from 'reactstrap';
 
-class Liabilities extends Component {
+class AccountsPage extends Component {
   render() {
     return (
       //this allows us to share state accross components
@@ -30,4 +30,4 @@ class Liabilities extends Component {
   }
 }
 
-export default Liabilities;
+export default AccountsPage;

@@ -28,10 +28,14 @@ class App extends Component {
             <Container>
               <h1>Financial Budgeting</h1>
               <Calculations />
-              <ItemModal/>
-              <TransactionList />
-              <div className="addButton">
+              <div className="addAccount">
                 <AccountModal/>
+              </div>
+              <div className="clearBoth">
+                <TransactionList />
+              </div>
+              <div className="addButton">
+                <ItemModal/>
               </div>
             </Container>
         </div>

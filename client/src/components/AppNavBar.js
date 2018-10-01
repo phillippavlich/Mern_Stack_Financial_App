@@ -44,12 +44,12 @@ class AppNavBar extends Component {
 							<Nav className="ml-auto" navbar>
 								<NavItem>
 
-									<NavLink href="./Liabilities">Liabilities</NavLink>
+									<NavLink href="./AccountsPage">Accounts</NavLink>
 									
 								</NavItem>
 								<NavItem>
 									<NavLink href="https://github.com/phillippavlich">Github</NavLink>
-									{//<NavLink tag={Link} to="/Liabilities">Assets </NavLink>
+									{//<NavLink tag={Link} to="/AccountsPage">Assets </NavLink>
 									//<Link className="nav-link" to="/dashboard">Dashboard</Link>
 									}
 								</NavItem>
