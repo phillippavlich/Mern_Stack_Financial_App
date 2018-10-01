@@ -5,15 +5,20 @@ import AccountsPage from './AccountsPage';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter, Route } from 'react-router-dom';
 
-/*
-<BrowserRouter>
 
-	<div className="sans-serif">
-	  <Route path="/" component={App} />
-	  <Route path="./Liabilities" component={Liabilities} />
-	</div>
-</BrowserRouter>
-*/
-ReactDOM.render(<App />,document.getElementById('root'));
+//ReactDOM.render(<App />,document.getElementById('root'));
+
+//Use Browser router to change the page based on the path!!!
+ReactDOM.render(
+	<BrowserRouter>
+	  <div>
+	    <Route exact path="/" component={App}/>
+	    <Route path="/AccountsPage" component={AccountsPage}/>
+	  </div>
+	</BrowserRouter>
+, document.getElementById('root'));
+
+
+
 
 registerServiceWorker();
