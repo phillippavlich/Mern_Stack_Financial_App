@@ -31,7 +31,7 @@ class AccountSummary extends Component{
 			}
 		}
 		
-		return inc;
+		return Math.round(inc * 100) / 100;
 	}
 
 	getLiabilities=(item, accountNumber)=>{
@@ -43,7 +43,7 @@ class AccountSummary extends Component{
 				}
 			}
 		}
-		return exp;
+		return Math.round(exp * 100) / 100;
 	}
 
 	getBalance=(item, accountNumber)=>{
@@ -61,7 +61,7 @@ class AccountSummary extends Component{
 				
 			}
 		}
-		return exp;
+		return Math.round(exp * 100) / 100;
 	}
 
 	checkType=(type)=>{

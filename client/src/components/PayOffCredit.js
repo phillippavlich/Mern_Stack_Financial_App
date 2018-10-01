@@ -24,8 +24,7 @@ class PayOffCredit extends Component{
 		liabilities: 0,
 		accountNumber: 'Account',
 		amount: 0,
-		dropdownAccountOpen: false,
-		selectedAccount: ''
+		dropdownAccountOpen: false
 
 	}
 	
@@ -48,11 +47,23 @@ class PayOffCredit extends Component{
 	    }));
 	}
 
+	chooseAccount = (event) => {
+	    this.setState({
+	      accountNumber: event.target.innerHTML
+	    });
+	}
+
+	onChange =(e)=>{
+		this.setState({
+			[e.target.name]: e.target.value
+
+		});
+	}
+
 	onSubmit=(e)=>{
 		//prevent default submission
 		e.preventDefault();
 		const num=this.state.accountNumber.split("-");
-		
 
 		const fromItem ={
 			name: 'Paid to Credit Card: '+this.props.actNum,
@@ -163,7 +174,7 @@ const mapStateToProps =(state)=> ({
 
 });
 
-export default connect(mapStateToProps,{getItems, getAccounts}) (PayOffCredit);
+export default connect(mapStateToProps,{addItem, getItems, getAccounts}) (PayOffCredit);
 
 	
 

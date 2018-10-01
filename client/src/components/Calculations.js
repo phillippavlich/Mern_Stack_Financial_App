@@ -27,7 +27,7 @@ class Calculations extends Component{
 			}
 		}
 		
-		return inc;
+		return Math.round(inc * 100) / 100;
 	}
 
 	getExpenses=(item)=>{
@@ -40,7 +40,7 @@ class Calculations extends Component{
 			}
 		}
 		
-		return exp;
+		return Math.round(exp * 100) / 100;
 	}
 
 
