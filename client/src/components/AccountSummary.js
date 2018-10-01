@@ -91,7 +91,7 @@ class AccountSummary extends Component{
 						</div>
 
 						<div style={{display: accountType==='Credit Card' ? 'inline' : 'none'}} >
-							<PayOffCredit />
+							<PayOffCredit actNum={accountNumber}/>
 						</div>
 
 						<div style={{marginBottom: '0.6rem', display: 'inline'}}>
