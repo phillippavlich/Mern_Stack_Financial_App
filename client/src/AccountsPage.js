@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AppNavBar from './components/AppNavBar'
-import TransactionList from './components/TransactionList'
-import ItemModal from './components/ItemModal'
+import AppNavBar from './components/AppNavBar';
+import AccountSummary from './components/AccountSummary';
+
 
 import {Provider} from 'react-redux';
 import store from './store';
@@ -17,8 +17,10 @@ class AccountsPage extends Component {
         <div className="App">
             <AppNavBar />
             <Container>
-            <h1>test Financial Budgeting</h1>
-            <h2>Transaction</h2>
+              <h1>My Accounts</h1>
+
+              <AccountSummary />
+            
             
           </Container>
         </div>
