@@ -3,6 +3,7 @@ import { getItems } from '../actions/itemActions';
 import { getAccounts } from '../actions/accountActions';
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
+import PayOffCredit from './PayOffCredit';
 
 class AccountSummary extends Component{
 	//life cycle method
@@ -63,6 +64,13 @@ class AccountSummary extends Component{
 		return exp;
 	}
 
+	checkType=(type)=>{
+		if(type==='Credit Card'){
+			return true;
+		}
+		return false;
+	}
+
 
 	render (){
 		let { items }=this.props.item;
@@ -82,8 +90,13 @@ class AccountSummary extends Component{
 							Account: 
 						</div>
 
-						<div style={{marginBottom: '0.6rem'}}>
+						<div style={{display: accountType==='Credit Card' ? 'inline' : 'none'}} >
+							<PayOffCredit />
+						</div>
+
+						<div style={{marginBottom: '0.6rem', display: 'inline'}}>
 							{name} - {accountHolder} - {accountType} - {accountNumber} - {dateCreated.substring(0, dateCreated.indexOf("T"))}
+							
 						</div>
 
 						<div>
