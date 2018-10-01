@@ -21,7 +21,8 @@ router.post('/', (req,res) => {
 	const newItem= new Item({
 		name: req.body.name,
 		transactionType: req.body.transactionType,
-		amount: req.body.amount
+		amount: req.body.amount,
+		accountNumber: req.body.accountNumber
 	});//from item model above
 	newItem.save().then(item => res.json(item));
 });

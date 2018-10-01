@@ -59,8 +59,7 @@ class AccountModal extends Component{
 			accountNumber: this.state.accountNumber
 
 		}
-		alert(newAccount.accountType);
-		alert(newAccount.accountNumber);
+		
 		//add item via addItem action
 		this.props.addAccount(newAccount);
 
@@ -96,25 +95,27 @@ class AccountModal extends Component{
 							          <DropdownItem divider />
 							          <DropdownItem onClick={this.select}>Checking</DropdownItem>
 							          <DropdownItem onClick={this.select}>Savings</DropdownItem>
+							          <DropdownItem onClick={this.select}>Credit Card</DropdownItem>
 							          <DropdownItem onClick={this.select}>Other</DropdownItem>
 							        </DropdownMenu>
 						      	</Dropdown>
+						      	
+						      	<InputGroup style={{ marginBottom: '1rem' }} >
+									<Input 
+										type="text"
+										name="name"
+										id="accountName"
+										placeholder="Add new Account Name"
+										onChange={this.onChange}
+									/>
+								</InputGroup>
 
 								<InputGroup style={{ marginBottom: '1rem' }} >
 									<Input 
 										type="text"
 										name="accountHolder"
 										id="accountHolder"
-										placeholder="Add the name of the account holder"
-										onChange={this.onChange}
-									/>
-								</InputGroup>
-								<InputGroup style={{ marginBottom: '1rem' }} >
-									<Input 
-										type="text"
-										name="name"
-										id="accountName"
-										placeholder="Add new account name"
+										placeholder="Add the Name of the account holder"
 										onChange={this.onChange}
 									/>
 								</InputGroup>

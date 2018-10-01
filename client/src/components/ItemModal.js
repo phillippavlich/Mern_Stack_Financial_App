@@ -11,15 +11,24 @@ Input, InputGroup, InputGroupAddon, Dropdown, DropdownItem, DropdownToggle, Drop
 } from 'reactstrap';
 import {connect} from 'react-redux';
 import {addItem} from '../actions/itemActions';
+import {getAccounts} from '../actions/accountActions';
+import PropTypes from 'prop-types';
 
 
 class ItemModal extends Component{
 	state={
 		modal: false,
 		dropdownOpen: false,
+		dropdownAccountOpen: false,
 		name: '',
 		transactionType: 'Type',
-		amount: 0
+		amount: 0,
+		accountNumber: 'Account'
+	}
+
+	componentDidMount(){
+		this.props.getAccounts();
+
 	}
 
 	toggle=()=>{
@@ -35,6 +44,12 @@ class ItemModal extends Component{
 	    }));
 	}
 
+	toggleAccount=()=> {
+	    this.setState(prevState => ({
+	      dropdownAccountOpen: !prevState.dropdownAccountOpen
+	    }));
+	}
+
 	onChange =(e)=>{
 		this.setState({
 			[e.target.name]: e.target.value
@@ -47,14 +62,22 @@ class ItemModal extends Component{
 	      transactionType: event.target.innerHTML
 	    });
 	}
+	chooseAccount = (event) => {
+	    this.setState({
+	      accountNumber: event.target.innerHTML
+	    });
+	}
 
 	onSubmit=(e)=>{
 		//prevent default submission
 		e.preventDefault();
+		const num=this.state.accountNumber.split("-");
+	
 		const newItem ={
 			name: this.state.name,
 			transactionType: this.state.transactionType,
-			amount: this.state.amount
+			amount: this.state.amount,
+			accountNumber: num[2]
 
 		}
 		//add item via addItem action
@@ -65,6 +88,7 @@ class ItemModal extends Component{
 	}
 
 	render(){
+		const { accounts }=this.props.account;
 		return(
 			<div>
 				<Button 
@@ -90,6 +114,20 @@ class ItemModal extends Component{
 							          <DropdownItem divider />
 							          <DropdownItem onClick={this.select}>Income</DropdownItem>
 							          <DropdownItem onClick={this.select}>Expense</DropdownItem>
+							        </DropdownMenu>
+						      	</Dropdown>
+
+						      	<Label for="account">Account</Label>
+						      	<Dropdown style={{ marginBottom: '1rem' }} isOpen={this.state.dropdownAccountOpen} toggle={this.toggleAccount}>
+							        <DropdownToggle caret>
+							          {this.state.accountNumber}
+							        </DropdownToggle>
+							        <DropdownMenu >
+							          <DropdownItem header>Pick One</DropdownItem>
+							          <DropdownItem divider />
+							          {accounts.map(({_id, name, accountHolder, accountType, accountNumber ,date}) => (
+							          	<DropdownItem onClick={this.chooseAccount}>{name}-{accountHolder}-{accountNumber}</DropdownItem>
+							          ))}
 							        </DropdownMenu>
 						      	</Dropdown>
 
@@ -127,7 +165,15 @@ class ItemModal extends Component{
 
 }
 
+ItemModal.propTypes={
+	getAccounts: PropTypes.func.isRequired,
+	account: PropTypes.object.isRequired,
+	item: PropTypes.object.isRequired
+
+}
+
 const mapStateToProps=(state)=>({
-	item: state.item
+	item: state.item,
+	account: state.account
 });
-export default connect(mapStateToProps, {addItem})(ItemModal);
+export default connect(mapStateToProps, {addItem, getAccounts})(ItemModal);

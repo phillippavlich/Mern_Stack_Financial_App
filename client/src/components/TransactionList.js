@@ -50,7 +50,7 @@ class TransactionList extends Component{
  	/*
 				<ListGroup>
 					<TransitionGroup >
-						{items.map(({_id, name,transactionType, amount, date}) => (
+						{items.map(({_id, name,transactionType, amount, accountNumber, date}) => (
 							<CSSTransition key={_id} timeout={10000} classNames="fade">	
 								<ListGroupItem>
 									<Button className="remove-btn" color="danger" size="sm"
@@ -78,6 +78,7 @@ class TransactionList extends Component{
 			            <th>Type</th>
 			            <th>Transaction</th>
 			            <th>Amount ($)</th>
+			            <th>Account #</th>
 			          </tr>
 			        </thead>
 			        
@@ -85,7 +86,7 @@ class TransactionList extends Component{
 {
 //			        	<TransitionGroup >
 }			        	
-			        	{items.map(({_id, name, transactionType, amount, date}) => (
+			        	{items.map(({_id, name, transactionType, amount, accountNumber, date}) => (
 			        		
 			        		<CSSTransition key={_id} timeout={10000} classNames="fade">	
 			        		
@@ -101,6 +102,7 @@ class TransactionList extends Component{
 					            <td>{transactionType}</td>
 					            <td>{name}</td>
 					            <td>{amount}</td>
+					            <td>{accountNumber}</td>
 				          		
 				          	</tr>
 				          	

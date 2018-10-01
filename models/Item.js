@@ -15,6 +15,10 @@ const ItemSchema=new Schema({
 		type: Number,
 		required: true
 	},
+	accountNumber: {
+		type: Number,
+		required: true
+	},
 	date: {
 		type: Date,
 		default: Date.now
